@@ -30,6 +30,8 @@ Siga as instruções abaixo para instalar e configurar a API em seu ambiente:
 6. Inicie o servidor local:
  - php artisan serve
 
-
+## Para usar no postman
+ Baixe o arquivo api-lista-de-compras.postman_collection.json
+e importe a collection no postman
 
 
