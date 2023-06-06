@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class ShoppingList extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title'];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
+
+
