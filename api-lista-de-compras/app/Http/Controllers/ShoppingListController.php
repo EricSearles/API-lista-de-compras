@@ -40,9 +40,16 @@ class ShoppingListController extends Controller
         return response()->json($product, 201);
     }
 
-    public function removeProduct($shoppingListId, $productId)
+    public function removeProduct(Request $request)
     {
-        $this->shoppingListService->removeProductFromShoppingList($shoppingListId, $productId);
+
+        $validatedData = $request->validate([
+            'product_id' => 'required|integer|min:1',
+            'list_id' => 'required|integer|min:1',
+        ]);
+
+
+        $this->shoppingListService->removeProductFromShoppingList($validatedData);
 
         return response()->json(null, 204);
     }

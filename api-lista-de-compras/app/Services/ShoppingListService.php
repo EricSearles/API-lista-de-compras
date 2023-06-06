@@ -32,15 +32,19 @@ class ShoppingListService
                 return $product;
             }
 
-        return 'Não foi possível inserir o produto na lista';
+        return response()->json(null, 401);
 
     }
 
-    public function removeProductFromShoppingList($shoppingListId, $productId)
+    public function removeProductFromShoppingList($data)
     {
-        $shoppingList = $this->shoppingListRepository->find($shoppingListId);
-        $product = $this->productRepository->find($productId);
-        $product->delete();
+        $shoppingList = $this->shoppingListRepository->find($data['list_id']);
+        $product = $this->productRepository->find($data['product_id']);
+        if (!empty($shoppingList) and !empty($product)) {
+            $product->delete();
+            return $shoppingList;
+        }
+        return response()->json(null, 401);
     }
 
     public function getShoppingList($shoppingListId)

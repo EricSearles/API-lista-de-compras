@@ -1,4 +1,25 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+API de Lista de Compras
+Esta é uma API de Lista de Compras desenvolvida com Laravel. A API oferece as seguintes funcionalidades:
 
+Criar uma lista de compras
+Adicionar e remover produtos à lista
+Obter dados de uma lista
+Adicionar e diminuir quantidades de um produto
+Duplicar uma lista
+Instalação
+Siga as instruções abaixo para instalar e configurar a API em seu ambiente:
 
-
+Clone o repositório:
+git clone
+Instale as dependências do projeto utilizando o Composer:
+composer install
+Crie um arquivo de ambiente .env a partir do arquivo .env.example e configure o banco de dados:
+cp .env.example .env
+Gere uma chave de aplicativo:
+php artisan key:generate
+Execute as migrations do banco de dados para criar as tabelas:
+php artisan migrate
+Inicie o servidor local:
+php artisan serve
+Para usar no postman
+Baixe o arquivo api-lista-de-compras.postman_collection.json e importe a collection no postman

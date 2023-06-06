@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('shopping-lists')->group(function () {
     Route::post('/', [ShoppingListController::class, 'create']);
     Route::post('/add-product', [ShoppingListController::class, 'addProduct']);
-    Route::delete('/{shoppingListId}/products/{productId}', [ShoppingListController::class, 'removeProduct']);
+    Route::post('/remove-products', [ShoppingListController::class, 'removeProduct']);
     Route::get('/{shoppingListId}', [ShoppingListController::class, 'getShoppingList']);
     Route::put('/products/{productId}/increase-quantity', [ShoppingListController::class, 'increaseProductQuantity']);
     Route::put('/products/{productId}/decrease-quantity', [ShoppingListController::class, 'decreaseProductQuantity']);

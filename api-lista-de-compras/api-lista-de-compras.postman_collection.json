@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "c83af40e-aa2c-4bb3-aa75-00db7970a985",
+		"name": "api-lista-de-compras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cria Lista",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Lista Exemplo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/shopping-lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shopping-lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adiciona produto a lista",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/shopping-lists/add-product?name=Tenis Adidas Stable&quantity=2&list_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shopping-lists",
+						"add-product"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Tenis Adidas Stable"
+						},
+						{
+							"key": "quantity",
+							"value": "2"
+						},
+						{
+							"key": "list_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Lista com produtos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/shopping-lists/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shopping-lists",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Produto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/shopping-lists/remove-products?product_id=2&list_id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shopping-lists",
+						"remove-products"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "2"
+						},
+						{
+							"key": "list_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incrementa Produto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/shopping-lists/products/3/increase-quantity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shopping-lists",
+						"products",
+						"3",
+						"increase-quantity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retira produto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/shopping-lists/products/3/decrease-quantity",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shopping-lists",
+						"products",
+						"3",
+						"decrease-quantity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "duplica lista",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/shopping-lists/2/duplicate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shopping-lists",
+						"2",
+						"duplicate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

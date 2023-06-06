@@ -14,7 +14,7 @@ class ShoppingListRepository
 
     public function find($id)
     {
-        return ShoppingList::findOrFail($id);
+        return ShoppingList::with('products' )->where('id', $id)->first();
     }
 
     public function update(ShoppingList $shoppingList, array $data)
