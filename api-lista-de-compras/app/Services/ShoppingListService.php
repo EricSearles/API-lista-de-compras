@@ -23,11 +23,17 @@ class ShoppingListService
         return $this->shoppingListRepository->create($data);
     }
 
-    public function addProductToShoppingList($shoppingListId, array $data)
+    public function addProductToShoppingList(array $data)
     {
-        $shoppingList = $this->shoppingListRepository->find($shoppingListId);
-        $product = $shoppingList->products()->create($data);
-        return $product;
+        $shoppingList = $this->shoppingListRepository->find($data['list_id']);
+
+            if(!empty($shoppingList)){
+                $product = $shoppingList->products()->create($data);
+                return $product;
+            }
+
+        return 'Não foi possível inserir o produto na lista';
+
     }
 
     public function removeProductFromShoppingList($shoppingListId, $productId)
