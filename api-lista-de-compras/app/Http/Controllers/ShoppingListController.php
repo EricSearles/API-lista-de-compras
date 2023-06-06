@@ -26,14 +26,16 @@ class ShoppingListController extends Controller
         return response()->json($shoppingList, 201);
     }
 
-    public function addProduct(Request $request, $shoppingListId)
+    public function addProduct(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'quantity' => 'required|integer|min:1',
+            'list_id' => 'required|integer|min:1',
         ]);
 
-        $product = $this->shoppingListService->addProductToShoppingList($shoppingListId, $validatedData);
+
+        $product = $this->shoppingListService->addProductToShoppingList($validatedData);
 
         return response()->json($product, 201);
     }
